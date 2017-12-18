@@ -15,11 +15,13 @@ RUN apt-get install -y liblua5.1-0-dev
 RUN apt-get install -y libgtest-dev
 RUN apt-get install -y git vim wget
 
-RUN git clone --recursive https://github.com/mickem/nscp.git
+RUN git clone https://github.com/mickem/nscp.git
 
 WORKDIR nscp
 
 RUN git checkout 0.5.2.22
+
+RUN git submodule update --init ext/cryptopp ext/gtest ext/json-spirit ext/md-protobuf ext/tinyxml2 ext/google-breakpad  ext/json-protobuf ext/lua-protobuf  ext/miniz 
 
 RUN chmod u+x /nscp/ext/md-protobuf/protoc-gen-md
 
