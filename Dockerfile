@@ -21,9 +21,17 @@ WORKDIR nscp
 
 RUN git checkout 0.5.2.22
 
-RUN git submodule update --init ext/cryptopp ext/gtest ext/json-spirit ext/md-protobuf ext/tinyxml2 ext/google-breakpad  ext/json-protobuf ext/lua-protobuf  ext/miniz 
+#RUN git submodule update --init ext/cryptopp
+#RUN git submodule update --init ext/gtest
+RUN git submodule update --init ext/json-spirit
+#RUN git submodule update --init ext/md-protobuf
+#RUN git submodule update --init ext/tinyxml2
+#RUN git submodule update --init ext/google-breakpad
+RUN git submodule update --init ext/json-protobuf
+#RUN git submodule update --init ext/lua-protobuf
+RUN git submodule update --init ext/miniz 
 
-RUN chmod u+x /nscp/ext/md-protobuf/protoc-gen-md
+#RUN chmod u+x /nscp/ext/md-protobuf/protoc-gen-md
 
 WORKDIR /nscp/build
 
